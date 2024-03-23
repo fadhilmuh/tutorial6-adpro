@@ -26,7 +26,7 @@ Proses dimulai dengan mengikat server TCP pada alamat dan port tertentu agar dap
 
 ## Commit 2: Returning HTML
 
-![Commit 2 screen capture](/assets/images/commit2.png) 
+![Commit 2 screen capture](assets/images/Commit2.png) 
 
 Kode `handle_connection` telah dimodifikasi. Setelah membaca permintaan HTTP dari client menggunakan `BufReader` dan mengumpulkannya dalam vektor `http_request` seperti sebelumnya, kode sekarang membangun respons HTTP yang mencakup status line, header `Content-Length`, dan isi konten dari file "hello.html". Ini dilakukan dengan menggunakan `fs::read_to_string` untuk membaca isi file "hello.html" ke dalam string `contents`, dan kemudian menghitung panjangnya untuk header `Content-Length`. Setelah itu, kode membangun respons dengan format yang sesuai dengan protokol HTTP, yang mencakup status line, header `Content-Length`, dan isi konten. Respons ini kemudian ditransmisikan kembali ke client melalui koneksi TCP menggunakan `stream.write_all()`. 
 
