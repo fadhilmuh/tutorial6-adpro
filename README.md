@@ -52,3 +52,6 @@ Dalam fungsi `handle_connection` yang telah diubah, pembacaan data permintaan HT
 
 ## Commit 4: Simulation of slow request
 Saat ini, server hanya berjalan pada satu thread, sehingga hanya bisa melayani satu respons pada satu waktu. Server saat ini bekerja dengan prinsip first come first served, sehingga tidak masalah berapa lama waktu yang dibutuhkan untuk melayani respons, selama mereka datang pertama kali, mereka akan dilayani terlebih dahulu. Namun, server akan perlahan-lahan terhambat jika banyak pengguna menerima respons yang lambat. Dalam kasus tersebut, diperlukan multithreading untuk melayani beberapa pengguna sekaligus.
+
+## Commit 5: Multithreaded server using Threadpool
+Thread pool adalah sekelompok thread yang telah diinisiasi dan siap untuk menangani tugas-tugas. Ketika sebuah program menerima tugas baru, ia menugaskan salah satu dari thread-thread dalam pool untuk menangani tugas tersebut, dan thread tersebut akan menjalankan proses pemrosesan. Sementara itu, thread-thread lain dalam pool tetap tersedia untuk menangani tugas-tugas lain yang masuk, bahkan ketika thread pertama sedang sibuk menyelesaikan tugasnya. Ketika thread pertama selesai menyelesaikan tugasnya, ia kembali ke pool thread yang tersedia, siap untuk menangani tugas baru. Dengan penerapan thread pool, program dapat memproses tugas secara paralel.
